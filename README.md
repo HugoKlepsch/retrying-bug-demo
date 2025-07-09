@@ -12,7 +12,7 @@
 ./benchmark.sh
 ```
 
-## Running the Example
+## Running the demo directly
 
 Ensure you have activated the appropriate virtual environment before running the example script.
 
