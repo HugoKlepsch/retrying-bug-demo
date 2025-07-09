@@ -34,35 +34,38 @@ $ ./benchmark.sh
 Starting ten 2-second-duration benchmarks of retry...
 Press Ctrl+C to stop early if needed
 
-BENCHMARK RESULTS: Duration(2.002s) Total Calls(2,242) Calls/sec(1119.77)
-BENCHMARK RESULTS: Duration(2.004s) Total Calls(2,429) Calls/sec(1212.00)
-BENCHMARK RESULTS: Duration(2.002s) Total Calls(2,390) Calls/sec(1193.56)
-BENCHMARK RESULTS: Duration(2.005s) Total Calls(2,454) Calls/sec(1223.86)
-BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,441) Calls/sec(1220.00)
-BENCHMARK RESULTS: Duration(2.000s) Total Calls(2,405) Calls/sec(1202.41)
-BENCHMARK RESULTS: Duration(2.006s) Total Calls(2,297) Calls/sec(1145.28)
-BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,441) Calls/sec(1219.65)
-BENCHMARK RESULTS: Duration(2.017s) Total Calls(2,306) Calls/sec(1143.45)
-BENCHMARK RESULTS: Duration(2.005s) Total Calls(2,464) Calls/sec(1229.18)
+BENCHMARK RESULTS: Duration(2.002s) Total Calls(2,302) Calls/sec(1149.95)
+BENCHMARK RESULTS: Duration(2.003s) Total Calls(2,489) Calls/sec(1242.45)
+BENCHMARK RESULTS: Duration(2.007s) Total Calls(2,309) Calls/sec(1150.65)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,441) Calls/sec(1219.99)
+BENCHMARK RESULTS: Duration(2.005s) Total Calls(2,527) Calls/sec(1260.34)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,389) Calls/sec(1193.98)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,452) Calls/sec(1225.49)
+BENCHMARK RESULTS: Duration(2.003s) Total Calls(2,340) Calls/sec(1168.34)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,311) Calls/sec(1154.97)
+BENCHMARK RESULTS: Duration(2.005s) Total Calls(2,414) Calls/sec(1204.23)
 
 --- Testing with retrying 1.3.6 ---
 Starting ten 2-second-duration benchmarks of retry...
 Press Ctrl+C to stop early if needed
 
-BENCHMARK RESULTS: Duration(2.008s) Total Calls(2,138) Calls/sec(1064.91)
-BENCHMARK RESULTS: Duration(2.000s) Total Calls(1,946) Calls/sec(972.94)
-BENCHMARK RESULTS: Duration(2.001s) Total Calls(1,659) Calls/sec(829.25)
-BENCHMARK RESULTS: Duration(2.010s) Total Calls(1,607) Calls/sec(799.31)
-BENCHMARK RESULTS: Duration(2.003s) Total Calls(1,492) Calls/sec(744.75)
-BENCHMARK RESULTS: Duration(2.002s) Total Calls(1,406) Calls/sec(702.13)
-BENCHMARK RESULTS: Duration(2.002s) Total Calls(1,355) Calls/sec(676.99)
-BENCHMARK RESULTS: Duration(2.011s) Total Calls(1,273) Calls/sec(633.02)
-BENCHMARK RESULTS: Duration(2.001s) Total Calls(1,268) Calls/sec(633.73)
-BENCHMARK RESULTS: Duration(2.003s) Total Calls(1,557) Calls/sec(777.51)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(2,158) Calls/sec(1078.33)
+BENCHMARK RESULTS: Duration(2.002s) Total Calls(1,798) Calls/sec(897.91)
+BENCHMARK RESULTS: Duration(2.006s) Total Calls(1,952) Calls/sec(973.04)
+BENCHMARK RESULTS: Duration(2.008s) Total Calls(1,591) Calls/sec(792.29)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(1,520) Calls/sec(759.58)
+BENCHMARK RESULTS: Duration(2.004s) Total Calls(1,389) Calls/sec(693.20)
+BENCHMARK RESULTS: Duration(2.008s) Total Calls(1,356) Calls/sec(675.38)
+BENCHMARK RESULTS: Duration(2.001s) Total Calls(1,287) Calls/sec(643.25)
+BENCHMARK RESULTS: Duration(2.016s) Total Calls(1,289) Calls/sec(639.45)
+BENCHMARK RESULTS: Duration(2.003s) Total Calls(1,284) Calls/sec(641.04)
 ```
 
 Note that the calls/sec of `retrying 1.3.6` is lower and decreases over time, 
 while `retrying 1.3.4` maintains a more consistent rate.
+There seems to be some action that gets slower with each retry. The benchmark 
+runs the ten tests in one process. If you modify the benchmark to run more
+tests, the performance just gets worse.
 
 ## Other Analysis
 
