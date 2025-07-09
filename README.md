@@ -1,6 +1,7 @@
 ## Set up
 
-* Install `retrying` at `1.3.4` and `1.3.6` in the `.venv-1.3.4` and `.venv-1.3.6` virtual environments respectively.
+* Install `retrying` at `1.3.4` and `1.3.6` in the `.venv-1.3.4` and 
+`.venv-1.3.6` virtual environments respectively.
 
 ```bash
 . setup.bash
@@ -14,7 +15,8 @@
 
 ## Running the demo directly
 
-Ensure you have activated the appropriate virtual environment before running the example script.
+Ensure you have activated the appropriate virtual environment before running 
+the example script.
 
 ```bash
 python retrying_bug_demo.py
@@ -59,4 +61,17 @@ BENCHMARK RESULTS: Duration(2.001s) Total Calls(1,268) Calls/sec(633.73)
 BENCHMARK RESULTS: Duration(2.003s) Total Calls(1,557) Calls/sec(777.51)
 ```
 
-Note that the calls/sec of `retrying 1.3.6` is lower and decreases over time, while `retrying 1.3.4` maintains a more consistent rate.
+Note that the calls/sec of `retrying 1.3.6` is lower and decreases over time, 
+while `retrying 1.3.4` maintains a more consistent rate.
+
+## Other Analysis
+
+* During my investigation, I found that the `self._logger.addHandler()` call
+\([introduced here][0]\)
+in `retrying 1.3.6` is increasingly slow with each retry, which is likely 
+causing the performance degradation.
+* In addition to this, though I don't have evidence that this is significant, 
+if not given a `logger` argument, it will create a new logger each time, which 
+also adds overhead.
+
+[0]: https://github.com/groodt/retrying/pull/6/files#diff-5d48e947cb75f0a64ea964638aee51b9473f649b6fe9de4bd3455aa7b0dae095R118
