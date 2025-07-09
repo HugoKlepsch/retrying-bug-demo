@@ -76,5 +76,6 @@ causing the performance degradation.
 * In addition to this, though I don't have evidence that this is significant, 
 if not given a `logger` argument, it will create a new logger each time, which 
 also adds overhead.
+* This issue affects versions 1.3.6 up to 1.4.0, which is the latest version.
 
 [0]: https://github.com/groodt/retrying/pull/6/files#diff-5d48e947cb75f0a64ea964638aee51b9473f649b6fe9de4bd3455aa7b0dae095R118
